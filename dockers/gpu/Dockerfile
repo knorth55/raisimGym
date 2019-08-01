@@ -19,12 +19,24 @@ RUN mkdir -p $LOCAL_BUILD
 # ==================================================================
 # tools
 # ------------------------------------------------------------------
-RUN apt-get install -y cmake python3.5-dev python3-pip libpython3.5-dev libeigen3-dev
+RUN apt-get install -y cmake python3.5-dev python3-pip libpython3.5-dev libeigen3-dev wget tar
 
 # ==================================================================
 # tensorflow
 # ------------------------------------------------------------------
 RUN pip3 install tensorflow-gpu setuptools
+
+# ==================================================================
+# cmake
+# ------------------------------------------------------------------
+RUN mkdir ~/temp && \
+    cd ~/temp && \
+    wget https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz
+RUN tar -xzvf cmake-3.14.5.tar.gz && \
+    cd cmake-3.14.5/ && \
+    ./bootstrap && \
+    make -j4 && \
+    sudo make install
 
 # ==================================================================
 # raisim
