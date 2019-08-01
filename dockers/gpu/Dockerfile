@@ -3,8 +3,10 @@ ENV LANG C.UTF-8
 RUN apt-get update && apt-get install -y git
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
+RUN add-apt-repository ppa:jonathonf/ffmpeg-4
 RUN apt-get update
 RUN apt-get install -y gcc-8 g++-8
+RUN apt-get install -y ffmpeg
 ENV CXX=/usr/bin/g++-8
 ENV CC=/usr/bin/gcc-8
 
