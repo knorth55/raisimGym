@@ -1,4 +1,4 @@
-FROM nvidia/cudagl:10.1-base-ubuntu18.04
+FROM nvidia/cudagl:9.1-base-ubuntu16.04
 ENV LANG C.UTF-8
 RUN apt-get update && apt-get install -y git
 RUN apt-get install -y software-properties-common
@@ -19,7 +19,7 @@ RUN mkdir -p $LOCAL_BUILD
 # ==================================================================
 # tools
 # ------------------------------------------------------------------
-RUN apt-get install -y cmake python3.6-dev python3-pip libpython3.6-dev libeigen3-dev
+RUN apt-get install -y cmake python3.5-dev python3-pip libpython3.5-dev libeigen3-dev
 
 # ==================================================================
 # tensorflow
